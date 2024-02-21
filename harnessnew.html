@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to the Datepicker.css file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='harnessnewstyle.css') }}">
+    <title>Family Pension Details</title>
+</head>
+<body onload="populateYearsAndMonths()">
+    <form action="/family_pension_result" method="POST">
+        <h1>Enter below details as per PPO</h1>
+        <label for="died-in-harness">Does the service personnel died during the service ? <span style="color: red;">*</span><br></label>
+	<input type="radio" name="died-in-harness" value="yes" onclick="toggleDateOfBirthAndDischarge()" required> Yes
+	<input type="radio" name="died-in-harness" value="no" onclick="toggleDateOfBirthAndDischarge()" required> No
+        
+
+        <label for="serviceType">Select the service type of pensioner as per PPO: <span style="color: red;">*</span><br>
+        <span style="font-size: 80%; color: #888;">Note: Choose the equivalent service type for Navy and Airforce</span>
+        </label>
+        <select id="serviceType" name="serviceType" onchange="populateRankDropdown()" required>
+            <option value="" selected disabled>Select service type</option>
+            <option value="Regular Commissioned Officers Excluding AMC/ADC/RVC/MNS/TA/EC/SSC">Regular Commissioned Officers Excluding AMC/ADC/RVC/MNS/TA/EC/SSC</option>
+            <option value="Commissioned Officers of AMC/ADC/RVC">Commissioned Officers of AMC/ADC/RVC</option>
+            <option value="Commissioned Officers of Territorial Army">Commissioned Officers of Territorial Army</option>
+            <option value="Commissioned Officers of Military Nursing Services">Commissioned Officers of Military Nursing Services</option>
+            <option value="Regular EC/SSC Officers Other than AMC/ADC/RVC">Regular EC/SSC Officers Other than AMC/ADC/RVC</option>
+            <option value="EC/SSC Officers AMC/ADC/RVC doctors">EC/SSC Officers AMC/ADC/RVC doctors</option>
+            <option value="JCOs/ORs including Honorary commisioned officers">JCOs/ORs including Honorary commisioned officers</option>
+            <option value="JCOs/ORs of DSC in receipt of 2nd pension">JCOs/ORs of DSC in receipt of 2nd pension</option>
+            <option value="JCOs/ORs of Territorial Army">JCOs/ORs of Territorial Army</option>
+            <!-- Add service type options --> 
+	    <!-- Add other option values here -->
+        </select>
+
+        <label for="rank">Select the rank of pensioner as per PPO:<span style="color: red;">*</span><br>
+        <span style="font-size: 80%; color: #888;">Note: Choose the equivalent rank for Navy and Airforce</span>
+        </label>
+        <select id="rank" name="rank" required>
+            <option value="" selected disabled>Select rank</option>
+        </select>
+  
+
+        <div class="container">
+            <div class="row">
+            <label for="yearsServed">Select the number of years and months served as per PPO: <span style="color: red;">*</span><br></label>
+                <label for="years">Years(YY):</label>
+                <select id="yearsServed" name="yearsServed" class="autofit" required>
+                    <!-- Options for years dropdown (00 to 40) will be populated using JavaScript -->
+                </select>
+            </div>
+            <div class="row">
+                <label for="months">Months(MM):</label>
+                <select id="monthsServed" name="monthsServed" class="autofit">
+                    <!-- Options for months dropdown (00 to 12) will be populated using JavaScript -->
+                </select>
+            </div>
+        </div>
+  
+
+        <div class="row">
+            <div id="date-of-death">
+                <label for="date-of-death">Service personnel's Date of death <br>as per PPO:<span style="color: red;">*</span><br></label>
+                <input type="date" name="date-of-death" id="date-of-death" required>
+            </div>
+
+            <div id="dependent-date-of-birth">
+                <label for="dependent-date-of-birth">Dependent's Date of Birth:<br>as per Aadhar: <span style="color: red;">*</span><br></label>
+                <input type="date" name="dependent-date-of-birth" id="dependent-date-of-birth" required>
+            </div>
+        </div>
+
+        <div class="container" id="date-of-discharge-container" style="display: none;">
+            <label class="date-label" for="date-of-discharge">Service personnel's Date of discharge <br> as per PPO:<span style="color: red;">*</span><br></label>
+            <input class="date-input" type="date" name="date-of-discharge" id="date-of-discharge">
+        </div>
+
+        <div class="container" id="date-of-birth-container" style="display: none;">
+            <label class="date-label" for="date-of-birth">Service Personnel's Date of Birth <br>as per PPO:<span style="color: red;">*</span><br></label>
+            <input class="date-input" type="date" name="date-of-birth" id="date-of-birth">
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+    <!-- Link to the Datepicker.js JavaScript file -->
+    <script src="{{ url_for('static', filename='harnessnewscript.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <h1>OROP II Pension amount for the given rank and Qualifying service:</h1>
+
+    {% if disability.lower() == "no" %}
+        {% if service_pension_amount == 0.0 %}
+            <p class="error-message">OOPS!! Sorry OROP II Pension is not eligible for your rank and qualifying service</p>
+        {% else %}
+            <p class="line">Your basic pension amount: <span class="amount">{{ service_pension_amount }}</span></p>
+            {% if additional_pension_amount != 0 %}
+                <p class="line">Your additional pension amount as you are {{ age }} years old: <span class="amount">{{ additional_pension_amount }}</span></p>
+            {% endif %}
+        {% endif %}
+    {% elif disability.lower() == "yes" %}
+        {% if service_pension_amount == 0.0 or disability_pension_amount == 0.0 %}
+            <p class="error-message">OOPS!! Sorry OROP II Pension is not eligible for your rank and qualifying service</p>
+        {% else %}
+            <p class="line">Your service element of the pension: <span class="amount">{{ service_pension_amount }}</span></p>
+            <p class="line">Your disability element of the pension: <span class="amount">{{ disability_pension_amount }}</span></p>
+            {% if additional_service_pension_amount != 0 or additional_disability_pension_amount != 0 %}
+                <p class="line">Additional pension for service element as you are {{ age }} years old: <span class="amount">{{ additional_service_pension_amount }}</span></p>
+                <p class="line">Additional pension for disability element as you are {{ age }} years old: <span class="amount">{{ additional_disability_pension_amount }}</span></p>
+            {% endif %}
+        {% endif %}
+    {% else %}
+        <p class="error-message">Invalid disability status</p>
+    {% endif %}
+    <p class="source">Source: Dept of Ex-servicemen welfare Letter No: 1(1)/2019/D(pen/Pol)/VOl-II dated 20/01/2023</p>
+
+    <!-- Add this anchor tag for the "Return to Home" button -->
+    <div class="button-container">
+    <a href="{{ url_for('pension_type') }}" class="return-home-button">Back to Home Page</a>
+    <!-- Add the Print button -->
+    <button onclick="window.print();" class="print-button">Print</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Pension Amount</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='family_pension_styles.css') }}">
+</head>
+<body>
+    <div class="center-container">
+        <h1>OROP II Pension amount for the given rank and Qualifying service:</h1>
+
+        {% if family_pension_amount == 0.0 %}
+            <div class="not-applicable">
+                OOPS!! Sorry OROP II pension is not eligible for your rank and Qualifying service
+            </div>
+        {% else %}
+            {% if pension_type.lower() == 'enhanced rate of ordinary family pension' %}
+                <div class="pension-message">
+                    Your Enhanced rate of pension is: <span class="pink-color">{{ family_pension_amount }}</span>
+                </div>
+            {% elif pension_type.lower() == 'normal rate of ordinary family pension' %}
+                <div class="pension-message">
+                    Your Normal rate of pension is: <span class="pink-color">{{ family_pension_amount }}</span>
+                </div>
+            {% endif %}
+            
+            {% if additional_pension_amount != 0 %}
+                <div class="additional-pension-message">
+                    Additional pension amount as you are {{ age }} years old: <span class="pink-color">{{ additional_pension_amount }}</span>
+                </div>
+            {% endif %}
+        {% endif %}
+    <p class="source">Source: Dept of Ex-servicemen welfare Letter No: 1(1)/2019/D(pen/Pol)/VOl-II dated 20/01/2023</p>
+    <!-- Add this anchor tag for the "Return to Home" button -->
+    <a href="{{ url_for('pension_type') }}" class="return-home-button">Back to Home Page</a>
+
+    <!-- Add the Print button -->
+    <button onclick="window.print();" class="print-button">Print</button>
+    </div>
+</body>
+</html>

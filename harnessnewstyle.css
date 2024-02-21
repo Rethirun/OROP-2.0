@@ -1,0 +1,131 @@
+body {
+    background-color: #99CCFF; /* Change to aqua blue */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+    width: 600px; /* Increase the white box width */
+    
+}
+
+h1 {
+    color: #3366cc;
+    text-align: center;
+    font-size: 24px; /* Reduce the font size */
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+
+
+select, input {
+    margin-top: 10px;
+    width: auto; /* Make inputs and selects full width */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+#serviceType {
+    width: 90%; /* Set the width to 100% */
+}
+
+#rank {
+    width: 90%; /* Set the width to 100% */
+}
+
+#yearsServed {
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+#date-of-death label,
+#date-of-death select,
+#dependent-date-of-birth label,
+#dependent-date-of-birth select {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-right: 5px; /* Adjust as needed */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* Align items to the baseline */
+}
+
+/* Adjust the margin-bottom for better spacing */
+.row label {
+    margin-bottom: 20px;
+}
+
+/* Remove negative left margin for dependent-date-of-birth label */
+#dependent-date-of-birth label {
+    margin-left: 0;
+}
+
+form #yearsServed,
+form #monthsServed {
+    width: auto;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+
+.container {
+    display: flex;
+    gap: 10px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.autofit {
+    width: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="date"] {
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 14px; /* Reduce the font size */
+    width: auto; /* Set the width to auto */
+    display: block; /* Make it a block-level element to center it */
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

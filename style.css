@@ -1,0 +1,64 @@
+body {
+  background-image: url('OROP_BG.jpg');
+  background-size: 100% 100%; /* Ensure the entire background image covers the container */
+  background-position: center; /* Center the background image both horizontally and vertically */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+
+.container {
+  width: 600px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background for better visibility over the image */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.step {
+  margin-bottom: 20px;
+}
+
+.bold-label {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.radio-group label {
+  display: inline;
+}
+
+.next-btn {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Pension Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+
+    <form action="/submit_page" method="post">
+        
+        <h1>Enter below details as per PPO</h1>
+
+        <label for="service_type">Select the service type of pensioner as per PPO:<span style="color: red;">*</span><br>
+    	    <span style="font-size: 80%; color: #888;">Note: Choose the equivalent service type for Navy and Airforce</span>
+	</label>
+	<select id="service_type" name="service_type" required>
+            <option value="" selected>Select Service Type</option>
+	    <option value="Regular Commissioned Officers Excluding AMC/ADC/RVC/MNS/TA/EC/SSC">Regular Commissioned Officers Excluding AMC/ADC/RVC/MNS/TA/EC/SSC</option>
+            <option value="Commissioned Officers of AMC/ADC/RVC">Commissioned Officers of AMC/ADC/RVC</option>
+            <option value="Commissioned Officers of Territorial Army">Commissioned Officers of Territorial Army</option>
+            <option value="Commissioned Officers of Military Nursing Services">Commissioned Officers of Military Nursing Services</option>
+            <option value="Regular EC/SSC Officers Other than AMC/ADC/RVC">Regular EC/SSC Officers Other than AMC/ADC/RVC</option>
+            <option value="EC/SSC Officers AMC/ADC/RVC doctors">EC/SSC Officers AMC/ADC/RVC doctors</option>
+            <option value="JCOs/ORs including Honorary commisioned officers">JCOs/ORs including Honorary commisioned officers</option>
+            <option value="JCOs/ORs of DSC in receipt of 2nd pension">JCOs/ORs of DSC in receipt of 2nd pension</option>
+            <option value="JCOs/ORs of Territorial Army">JCOs/ORs of Territorial Army</option>
+            <!-- Add service type options -->  
+            <!-- Service type options -->
+        </select>
+
+        <label for="rank">Select the rank of the pensioner as per PPO:<span style="color: red;">*</span><br>
+    	<span style="font-size: 80%; color: #888;">Note: Choose the equivalent rank for Navy and Airforce</span>
+	</label>
+
+        <select id="rank" name="rank" required>
+            <option value="" selected disabled>Select Rank</option>
+            <!-- Rank options based on service type -->
+        </select>
+
+        <label for="years_months">Select the number of years and months served as per PPO:<span style="color: red;">*</span></label>
+	<div class="years-months-container">
+    	<div>
+        <label for="years">Years(YY):</label>
+        <select id="years" name="years" required>
+            <!-- Year options -->
+        </select>
+    	</div>
+
+    	<div>
+        <label for="months">Months(MM):</label>
+        <select id="months" name="months">
+            <option value="00" selected>00</option>
+            <!-- Month options -->
+        </select>
+    	</div>
+	</div>
+        <div class="date-inputs-container">
+            <div>
+                <label for="date_of_birth">Enter the date of birth as per PPO:<span style="color: red;">*</span></label>
+                <input type="date" id="date_of_birth" name="date_of_birth" format="dd/mm/yyyy" required>
+            </div>
+            <div>
+                <label for="date_of_discharge">Enter the date of discharge as per PPO:<span style="color: red;">*</span></label>
+                <input type="date" id="date_of_discharge" name="date_of_discharge" format="dd/mm/yyyy" required>
+            </div>
+        </div>
+
+        <label>Are you eligible for disability pension as per PPO?<span style="color: red;">*</span></label>
+	<div class="radio-container">
+    		<input type="radio" id="disability_yes" name="disability" value="yes" required>
+    		<label for="disability_yes">Yes</label>
+
+    		<input type="radio" id="disability_no" name="disability" value="no" checked required>
+    		<label for="disability_no">No</label>
+	</div>
+
+        <div id="disability_percentage_container" style="display: none;">
+            <label for="disability_percentage">Enter the disability percentage as per PPO(Example 42%, 50%, 67%..):<span style="color: red;">*</span></label>
+            <input type="text" id="disability_percentage" name="disability_percentage">
+        </div>
+
+        <!-- Add other form elements as needed -->
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

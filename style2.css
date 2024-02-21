@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #99CCFF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column; /* Display content in a column layout */
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 24px; /* Increase font size for the heading */
+    margin-bottom: 10px; /* Add some space below the heading */
+}
+
+.line {
+    color: #555;
+    text-align: center; /* Align text to the center within the line */
+    font-size: 20px; /* Increase font size for the line */
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center; /* Center content vertically within the line */
+}
+
+p.error-message {
+    color: #e00; /* RED color for error messages */
+    font-size: 18px;
+}
+
+span.amount {
+    color: #E32DC5; /* PINK color for the amount */
+    font-weight: bold; /* Bold font */
+}
+
+/* Add this style for the return to home button */
+.return-home-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Change button color on hover */
+.return-home-button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+/* Add this style for the print button */
+.print-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none; /* Remove outline */
+    border: none; /* Remove border */
+}
+
+/* Change button color on hover */
+.print-button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+
+
